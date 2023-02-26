@@ -1,76 +1,268 @@
 #contact_modal {
-    display: none;
+  display: none;
+  /* rajouter des choses pour
+     que la modal soit en haut */
 }
 
 .photograph-header {
-    background-color: #FAFAFA;
-    height: 300px;
-    margin: 0 100px;
+  background-color: #fafafa;
+  height: 300px;
+  margin: 0 100px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 30px;
+}
+
+.photograph-header h1 {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 50px;
+  color: #d3573c;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.photograph-header .location {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  color: #901c1c;
+  padding: 0;
+  margin: 0 0 20px 0;
+}
+
+.photograph-header .tagline {
+  font-family: "DM Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  color: #525252;
+  padding: 0;
+  margin: 0;
+}
+
+.photograph-header img {
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.sorting {
+  margin: 20px 0px 0px 100px;
+  font-weight: bold;
+  display: flex;
+}
+
+.sorting label {
+  align-self: center;
+}
+
+.sorting select {
+  background-color: #901c1c;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  min-width: 100px;
+  margin-left: 25px;
+}
+
+.sorting select * {
+  height: 500px;
+}
+
+.photograph-media {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.photograph-media div {
+  margin: 30px;
+}
+
+.photograph-media div a {
+  cursor: pointer;
+}
+
+.photograph-media div div {
+  color: #901c1c;
+  font-size: large;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.photograph-media img {
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+}
+
+button, #like-inactive {
+	all: unset;
+  cursor: pointer;
+  align-self: center;
+}
+
+button, #like-active {
+	all: unset;
+  cursor: pointer;
+  align-self: center;
+}
+
+button:focus {
+  outline: black 5px auto;
+}
+
+#like-inactive {
+  height: 20px;
+  width: 20px;
+  filter: brightness(0) saturate(100%) invert(20%) sepia(85%) saturate(1875%)
+    hue-rotate(345deg) brightness(78%) contrast(94%);
+}
+
+#like-active {
+  height: 20px;
+  width: 20px;
+  filter: brightness(0) saturate(100%) invert(20%) sepia(85%) saturate(1875%)
+    hue-rotate(345deg) brightness(78%) contrast(94%);
 }
 
 .contact_button {
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
-    border: none;
-    background-color: #901C1C;
-    border-radius: 5px;
-    cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 15px;
+  border: none;
+  background-color: #901c1c;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.insert {
+  background-color: #db8876;
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+  padding: 0 20px;
+  position: fixed;
+  bottom: 0;
+  right: 50px;
+}
+
+.insert div {
+  display: flex;
+}
+
+#total-likes-icon {
+  width: 20px;
+  height: 20px;
+  align-self: center;
+  margin-left: 10px;
 }
 
 .modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 35px;
-    margin: auto;
+  border-radius: 5px;
+  background-color: #db8876;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 35px;
+  margin: auto;
+  position: fixed;
+  top: 20px;
+  bottom: 20px;
+  left: 25%;
+  height: 100vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 .modal header {
-    justify-content: space-between;
-    width: 100%;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .modal header img {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .modal header h2 {
-    font-size: 64px;
-    font-weight: normal;
-    text-align: center;
+  font-size: 64px;
+  font-weight: normal;
+  text-align: center;
+}
+
+.lightbox {
+  background-color: white;
+  position: fixed;
+  top: 20px;
+  bottom: 20px;
+  left: 5%;
+  width: 90%;
+  height: 100vh;
+  display: flex;
+  overflow-y: scroll;
+}
+
+.lightbox #close {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  width: 30px;
+  filter: brightness(0) saturate(100%) invert(20%) sepia(85%) saturate(1875%)
+    hue-rotate(345deg) brightness(78%) contrast(94%);
+}
+
+.lightbox #right {
+  width: 100px;
+}
+
+.lightbox #left {
+  width: 100px;
+}
+
+.lightbox_media img {
+  width: 95%;
+  margin: 20px 30px;
+}
+
+.lightbox_media video {
+  width: 95%;
+  margin: 20px 30px;
 }
 
 form {
-    display: flex;
-    width: 100%;
-    flex-direction: column;
-    align-items: flex-start;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 form label {
-    color: #312E2E;
-    font-size: 36px;
+  color: #312e2e;
+  font-size: 36px;
 }
 
 form div {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    align-items: self-start;
-    margin-bottom: 26px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: self-start;
+  margin-bottom: 26px;
 }
 
 form input {
-    width: 100%;
-    height: 68px;
-    border: none;
-    border-radius: 5px;
+  width: 100%;
+  height: 68px;
+  border: none;
+  border-radius: 5px;
 }
