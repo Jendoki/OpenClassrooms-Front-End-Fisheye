@@ -43,11 +43,9 @@
       >
         <header>
           <h2>Contactez-moi</h2>
-          <img
-            src="assets/icons/close.svg"
-            alt="icon pour fermer"
-            onclick="closeModal()"
-          />
+          <button id="closeContactModal" onclick="closeModal()">
+            <img src="assets/icons/close.svg" alt="icon pour fermer" />
+          </button>
         </header>
         <form name="contact" method="get" onsubmit="return validate(event);">
           <div>

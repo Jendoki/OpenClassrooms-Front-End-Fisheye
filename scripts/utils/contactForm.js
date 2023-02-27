@@ -1,13 +1,22 @@
 function displayModal () {
   console.log('displayModal')
   const modal = document.getElementById('contact_modal')
+  const closeButton = document.getElementById('closeContactModal')
   modal.style.display = 'block'
-  modal.focus()
+  setTimeout(() => { closeButton.focus() }, 1)
+  document.addEventListener('keydown', pressKey)
+}
+
+function pressKey (event) {
+  if (event.code === 'Escape') {
+    closeModal()
+  }
 }
 
 function closeModal () {
   const modal = document.getElementById('contact_modal')
   modal.style.display = 'none'
+  document.removeEventListener('keydown', pressKey)
 }
 
 const form = document.getElementsByName('contact')

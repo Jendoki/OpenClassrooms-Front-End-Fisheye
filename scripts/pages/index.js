@@ -2,7 +2,7 @@ async function getPhotographers () {
   // Penser à remplacer par les données récupérées dans le json
   let json = []
   try {
-    const response = await fetch('/data/photographers.json')
+    const response = await fetch('../../data/photographers.json')
     json = await response.json()
     console.log(json)
   } catch (error) {
