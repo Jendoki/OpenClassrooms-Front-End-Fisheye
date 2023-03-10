@@ -1,5 +1,4 @@
 function displayModal () {
-  console.log('displayModal')
   const modal = document.getElementById('contact_modal')
   const closeButton = document.getElementById('closeContactModal')
   modal.style.display = 'block'

@@ -37,7 +37,6 @@ function lightboxFactory (media, medias) {
 
     lightbox.appendChild(closeButton)
     lightbox.appendChild(rightButton)
-    console.log(medias)
     return lightbox
   }
 

@@ -1,9 +1,11 @@
 function photographerFactory (photographer) {
   const { id, name, portrait, city, country, price, tagline } = photographer
+  // On récupère les données de chaque photographe
 
   const picture = `assets/photographers/${portrait}`
 
   function getUserCardDOM () {
+    // On créé les éléments dont on se servira dans la card photographe
     const article = document.createElement('article')
     const link = document.createElement('a')
     const img = document.createElement('img')
@@ -23,17 +25,17 @@ function photographerFactory (photographer) {
     taglineP.textContent = `${tagline}`
     priceP.textContent = `${price}€/jour`
     h2.textContent = name
+    // Puis on les imbrique afin de renvoyer l'article
     article.appendChild(link)
     link.appendChild(img)
     link.appendChild(h2)
     article.appendChild(locationP)
     article.appendChild(taglineP)
     article.appendChild(priceP)
-    console.log(photographer)
     return article
   }
 
-  // add code for the photographer page
+  // Code pour la page photographe
   function getUserDOM () {
     const photographHeader = document.querySelector('.photograph-header')
     const photographerProfile = document.createElement('div')
@@ -42,6 +44,7 @@ function photographerFactory (photographer) {
     const locationh3 = document.createElement('h3')
     const taglineP = document.createElement('p')
     const img = document.createElement('img')
+    const contactFormName = document.querySelector('#photographer-name')
     img.setAttribute('src', picture)
     img.setAttribute('alt', 'Photo du photographe')
     photographerProfile.className = 'photographer-profile'
@@ -51,6 +54,7 @@ function photographerFactory (photographer) {
     h1.textContent = name
     locationh3.textContent = `${city}, ${country}`
     taglineP.textContent = `${tagline}`
+    contactFormName.textContent = `Contactez moi ${name}`
     photographHeader.prepend(column)
     column.appendChild(h1)
     column.appendChild(locationh3)

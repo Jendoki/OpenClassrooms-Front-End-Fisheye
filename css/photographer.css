@@ -104,6 +104,12 @@
   object-fit: cover;
 }
 
+.photograph-media video {
+  height: 400px;
+  width: 400px;
+  object-fit: cover;
+}
+
 button, #like-inactive {
 	all: unset;
   cursor: pointer;
@@ -201,6 +207,10 @@ button:focus {
   text-align: center;
 }
 
+textarea {
+  width: 100%;
+}
+
 .lightbox {
   background-color: white;
   position: fixed;
@@ -265,4 +275,16 @@ form input {
   height: 68px;
   border: none;
   border-radius: 5px;
+}
+
+span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

@@ -1,10 +1,6 @@
 function mediaFactory (media, medias) {
   const { likes, photographerId, title, image, video } = media
 
-  // TO DO :
-  // Accessibilité :
-  // - modal de contact - voir les aria-label et autres
-
   function getMediaDOM () {
     media.status = 'not-liked'
     const photographMedia = document.querySelector('.photograph-media')
@@ -18,33 +14,30 @@ function mediaFactory (media, medias) {
     const buttonUnlikedMedia = document.createElement('button')
     const likedMedia = document.createElement('img')
     const unlikedMedia = document.createElement('img')
+    const likedMediaSpan = document.createElement('span')
+    const unlikedMediaSpan = document.createElement('span')
     mediaLikesDiv.className = 'media-likes'
+    mediaLikes.className = 'media-like'
     linkToLightbox.className = 'link-to-lightbox'
     linkToLightbox.setAttribute('href', '#')
+    linkToLightbox.setAttribute('title', title)
     likedMedia.id = 'like-active'
     unlikedMedia.id = 'like-inactive'
-
-
-    linkToLightbox.addEventListener('click', function () {
-      const lightboxModel = lightboxFactory(media, medias)
-      const lightbox = lightboxModel.getLightboxDOM()
-      const modal = document.getElementById('lightbox_modal')
-      modal.appendChild(lightbox)
-    })
+    likedMedia.setAttribute('aria-hidden', 'true')
+    unlikedMedia.setAttribute('aria-hidden', 'true')
     mediaTitle.textContent = title
     mediaLikes.textContent = likes
+    likedMediaSpan.textContent = 'bouton pour unlike le media'
+    unlikedMediaSpan.textContent = 'bouton pour like le media'
     likedMedia.setAttribute('src', '/assets/icons/heart-filled.svg')
     likedMedia.setAttribute('alt', `icone pour unlike la photo ${title}`)
     unlikedMedia.setAttribute('src', '/assets/icons/heart-empty.svg')
     unlikedMedia.setAttribute('alt', `icone pour like la photo ${title}`)
+    buttonLikedMedia.appendChild(likedMediaSpan)
+    buttonUnlikedMedia.appendChild(unlikedMediaSpan)
 
-    mediaLikesDiv.addEventListener('click', function () {
-      if (media.status === 'not-liked') {
-        likeMedia(media, mediaLikes, likedMedia, unlikedMedia)
-      } else if (media.status === 'liked') {
-        unlikeMedia(media, mediaLikes, likedMedia, unlikedMedia)
-      }
-    })
+    linkToLightbox.addEventListener('click', () => openLightbox(media, medias))
+    mediaLikesDiv.addEventListener('click', () => handleLike(media, mediaLikes, likedMedia, unlikedMedia))
 
     if (image === undefined) {
       getVideoDOM(
@@ -79,30 +72,6 @@ function mediaFactory (media, medias) {
     }
 
     return mediaDiv
-  }
-
-  function likeMedia (media, mediaLikes, likedMedia, unlikedMedia) {
-    media.likes += 1
-    media.status = 'liked'
-    mediaLikes.textContent = media.likes
-    console.log(media)
-    likedMedia.style.display = 'block'
-    unlikedMedia.style.display = 'none'
-    const totalLikes = document.querySelector('#total-likes')
-    const newTotalLikes = parseInt(totalLikes.textContent) + 1
-    totalLikes.textContent = newTotalLikes
-  }
-
-  function unlikeMedia (media, mediaLikes, likedMedia, unlikedMedia) {
-    media.likes -= 1
-    media.status = 'not-liked'
-    mediaLikes.textContent = media.likes
-    console.log(media)
-    likedMedia.style.display = 'none'
-    unlikedMedia.style.display = 'block'
-    const totalLikes = document.querySelector('#total-likes')
-    const newTotalLikes = parseInt(totalLikes.textContent) - 1
-    totalLikes.textContent = newTotalLikes
   }
 
   function getImageDOM (

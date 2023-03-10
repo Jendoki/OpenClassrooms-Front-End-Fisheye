@@ -14,8 +14,6 @@ async function getPhotographerAndMedia (id) {
       (accumulator, currentValue) => accumulator + currentValue,
       0
     )
-    console.log(media)
-    console.log(likesNumber)
   } catch (error) {
     console.error(error)
   }
@@ -67,8 +65,7 @@ function displayMedias (medias) {
   })
 }
 
-async function displayData (photographerData) {
-  console.log(photographerData)
+function displayData (photographerData) {
   const photographer = photographerData[0]
   const medias = photographerData[1]
   const likesNumber = photographerData[2]

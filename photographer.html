@@ -35,14 +35,9 @@
     </main>
     <div id="lightbox_modal"></div>
     <div id="contact_modal">
-      <div
-        class="modal"
-        aria-hidden="true"
-        role="dialog"
-        aria-describedby="modalContact"
-      >
+      <div class="modal" aria-hidden="true" role="dialog">
         <header>
-          <h2>Contactez-moi</h2>
+          <h2 id="photographer-name">Contactez-moi</h2>
           <button id="closeContactModal" onclick="closeModal()">
             <img src="assets/icons/close.svg" alt="icon pour fermer" />
           </button>
@@ -71,17 +66,19 @@
               name="email"
             /><br />
             <label for="message">Message</label><br />
-            <textarea id="message" name="message" rows="6" cols="50"> </textarea
+            <textarea id="message" name="message" rows="6" cols="60"> </textarea
             ><br />
           </div>
           <button class="contact_button">Envoyer</button>
         </form>
       </div>
     </div>
+    <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/lightbox.js"></script>
+    <script src="/scripts/utils/likemedia.js"></script>
     <script src="scripts/factories/lightbox.js"></script>
     <script src="scripts/factories/photographer.js"></script>
     <script src="scripts/factories/media.js"></script>
     <script src="/scripts/pages/photographer.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
   </body>
 </html>
