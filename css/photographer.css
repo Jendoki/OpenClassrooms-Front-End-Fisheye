@@ -268,6 +268,7 @@ form div {
   width: 100%;
   align-items: self-start;
   margin-bottom: 26px;
+  margin-top: 50px;
 }
 
 form input {
@@ -287,4 +288,9 @@ span {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+#photographer-name {
+  margin-top: 80px;
+  margin-bottom: 20px;
 }
